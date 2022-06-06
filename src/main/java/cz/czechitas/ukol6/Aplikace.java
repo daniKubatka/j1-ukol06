@@ -22,6 +22,9 @@ public class Aplikace extends JFrame {
 
     private JButton vypocitatButton;
 
+    SpinnerNumberModel spinnerNumberModelHusy = new SpinnerNumberModel(1, 0, 50, 1);
+    SpinnerNumberModel spinnerNumberModelKralici = new SpinnerNumberModel(1, 0, 50, 1);
+
     public static void main(String[] args) {
         FlatLightLaf.setup();
         new Aplikace().start();
@@ -43,7 +46,7 @@ public class Aplikace extends JFrame {
         setLayout(new MigLayout("wrap 2", "[right]rel[50:120:150,grow,fill]"));
         setMinimumSize(new Dimension(250, 200));
 
-        husySpinner = new JSpinner();
+        husySpinner = new JSpinner(spinnerNumberModelHusy);
         husyLabel = new JLabel("Husy");
         husyLabel.setLabelFor(husySpinner);
         husyLabel.setDisplayedMnemonic('H');
@@ -51,7 +54,7 @@ public class Aplikace extends JFrame {
         add(husyLabel);
         add(husySpinner);
 
-        kraliciSpinner = new JSpinner();
+        kraliciSpinner = new JSpinner(spinnerNumberModelKralici);
         kraliciLabel = new JLabel("Kralici");
         kraliciLabel.setLabelFor(kraliciSpinner);
         kraliciLabel.setDisplayedMnemonic('K');
